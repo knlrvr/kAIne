@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kAIne</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<aside class="sidebar" id="sidebar">
+  <div class="side-head">
+    <span class="brand">k<b>AI</b>ne</span>
+  </div>
+
+  <button class="item" data-nope><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>New chat</span></button>
+  <button class="item" data-nope><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search chats</span></button>
+  <button class="item" data-nope><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>View chat history</span></button>
+  <button class="item" data-nope><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Explore kAInes</span></button>
+
+  <div class="label">Recents</div>
+  <div class="history">
+    <p class="history-empty">Recent conversations will appear here.</p>
+  </div>
+
+  <div class="side-foot">
+    <button class="upgrade" data-nope><strong>Upgrade to <span class="brand">k<b>AI</b>ne</span> Pro</strong><small>Same answers, but faster</small></button>
+    <button class="item" data-nope><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg><span>Settings</span></button>
+    <button class="item" data-nope><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg><span>Help &amp; FAQ</span></button>
+    <div class="auth">
+      <button class="btn primary" data-nope>Log in</button>
+      <button class="btn" data-nope>Sign up</button>
+    </div>
+  </div>
+</aside>
+<div class="scrim" id="scrim"></div>
+
+<main class="main">
+  <header class="topbar">
+    <button class="icon-btn" id="toggleSide" aria-label="Toggle sidebar"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16"/></svg></button>
+    <button class="model" data-nope><span class="brand">k<b>AI</b>ne</span><small>4.0-ish</small><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="spacer"></div>
+    <button class="share" data-nope><svg viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg><span>Share</span></button>
+    <button class="icon-btn" data-nope aria-label="More options"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button>
+  </header>
+
+  <div class="scroll is-empty" id="scroll">
+    <div class="empty">
+      <h1>What can I get wrong for you?</h1>
+      <p>Ask anything. Confidence guaranteed. Accuracy sold separately.</p>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="thread" id="thread" aria-live="polite"></div>
+  </div>
+
+  <div class="composer-wrap">
+    <form class="composer" id="form">
+      <textarea id="input" rows="1" placeholder="Ask kAIne anything" aria-label="Message"></textarea>
+      <div class="tools">
+        <button type="button" class="icon-btn" data-nope aria-label="Attach file"><svg viewBox="0 0 24 24"><path d="M20 11.5 12.5 19a5 5 0 0 1-7-7l8-8a3.3 3.3 0 0 1 4.700 4.700l-8 8a1.700 1.700 0 0 1-2.400-2.400L15 7"/></svg></button>
+        <button type="button" class="icon-btn" data-nope aria-label="Search the web"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.500 2.500 3.500 5.500 3.500 9s-1 6.500-3.500 9c-2.500-2.500-3.500-5.500-3.500-9S9.500 5.500 12 3z"/></svg></button>
+        <div class="spacer"></div>
+        <button type="button" class="icon-btn" data-nope aria-label="Voice input"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+        <button class="send" id="send" aria-label="Send message" disabled><svg viewBox="0 0 24 24" style="stroke-width:2.4"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+      </div>
+    </form>
+    <p class="model-name"><code>kAIne-4.0-ish-turbo-preview-final-v2-FINAL 4.0.01</code></p>
+    <p class="fine"><span class="brand">k<b>AI</b>ne</span> can make mistakes. Honestly, that's most of what it does.</p>
+  </div>
+</main>
+
+<div class="backdrop" id="backdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="nopeTitle">
+    <h2 id="nopeTitle">We don't do that here.</h2>
+    <button class="btn primary" id="nopeOk">Okay</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
